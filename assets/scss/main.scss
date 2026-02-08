@@ -1,0 +1,20 @@
+@import "blocks/global";
+
+@import "blocks/button";
+//@import "blocks/auth";
+
+body {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #1C1C1C;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #754FE0;
+    border-radius:10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #7D5AB5;
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "CabinetLayout": {
+    "description": "Auto imported from components/CabinetLayout.vue"
+  },
+  "MobilePlaceholder": {
+    "description": "Auto imported from components/MobilePlaceholder.vue"
+  },
+  "PaymentPage": {
+    "description": "Auto imported from components/PaymentPage.vue"
+  },
+  "Tab": {
+    "description": "Auto imported from components/Tab.vue"
+  },
+  "Tabs": {
+    "description": "Auto imported from components/Tabs.vue"
+  },
+  "CabinetBackToLobby": {
+    "description": "Auto imported from components/Cabinet/CabinetBackToLobby.vue"
+  },
+  "CabinetCommission": {
+    "description": "Auto imported from components/Cabinet/CabinetCommission.vue"
+  },
+  "CabinetCommissionInfo": {
+    "description": "Auto imported from components/Cabinet/CabinetCommissionInfo.vue"
+  },
+  "CabinetCommuniy": {
+    "description": "Auto imported from components/Cabinet/CabinetCommuniy.vue"
+  },
+  "CabinetData": {
+    "description": "Auto imported from components/Cabinet/CabinetData.vue"
+  },
+  "CabinetFinances": {
+    "description": "Auto imported from components/Cabinet/CabinetFinances.vue"
+  },
+  "CabinetCarousel": {
+    "description": "Auto imported from components/Cabinet/Carousel.vue"
+  },
+  "CabinetCommunityCarousel": {
+    "description": "Auto imported from components/Cabinet/CommunityCarousel.vue"
+  },
+  "CabinetGameCard": {
+    "description": "Auto imported from components/Cabinet/GameCard.vue"
+  },
+  "CabinetModalGameConnect": {
+    "description": "Auto imported from components/Cabinet/ModalGameConnect.vue"
+  },
+  "CabinetModalGames": {
+    "description": "Auto imported from components/Cabinet/ModalGames.vue"
+  },
+  "CabinetModalService": {
+    "description": "Auto imported from components/Cabinet/ModalService.vue"
+  },
+  "CabinetNews": {
+    "description": "Auto imported from components/Cabinet/News.vue"
+  },
+  "CabinetStars": {
+    "description": "Auto imported from components/Cabinet/Stars.vue"
+  },
+  "CabinetUser": {
+    "description": "Auto imported from components/Cabinet/User.vue"
+  },
+  "CabinetVerificationCard": {
+    "description": "Auto imported from components/Cabinet/VerificationCard.vue"
+  },
+  "CommonCabinetHeader": {
+    "description": "Auto imported from components/Common/CabinetHeader.vue"
+  },
+  "CommonCustomTable": {
+    "description": "Auto imported from components/Common/CustomTable.vue"
+  },
+  "DocsAML": {
+    "description": "Auto imported from components/Docs/AML.vue"
+  },
+  "DocsPrivacyPolicy": {
+    "description": "Auto imported from components/Docs/PrivacyPolicy.vue"
+  },
+  "DocsTermsOfUse": {
+    "description": "Auto imported from components/Docs/TermsOfUse.vue"
+  },
+  "FooterAddress": {
+    "description": "Auto imported from components/Footer/FooterAddress.vue"
+  },
+  "FooterDocs": {
+    "description": "Auto imported from components/Footer/FooterDocs.vue"
+  },
+  "FooterLegalAge": {
+    "description": "Auto imported from components/Footer/FooterLegalAge.vue"
+  },
+  "FooterSocial": {
+    "description": "Auto imported from components/Footer/FooterSocial.vue"
+  },
+  "FooterMainFooter": {
+    "description": "Auto imported from components/Footer/MainFooter.vue"
+  },
+  "FriendsFriendCard": {
+    "description": "Auto imported from components/Friends/FriendCard.vue"
+  },
+  "HistoryLine": {
+    "description": "Auto imported from components/History/HistoryLine.vue"
+  },
+  "LandingFaqAccordion": {
+    "description": "Auto imported from components/Landing/FaqAccordion.vue"
+  },
+  "LandingFaqAccordionItem": {
+    "description": "Auto imported from components/Landing/FaqAccordionItem.vue"
+  },
+  "LandingGameCard": {
+    "description": "Auto imported from components/Landing/GameCard.vue"
+  },
+  "LandingGameCardStar": {
+    "description": "Auto imported from components/Landing/GameCardStar.vue"
+  },
+  "LandingGameCardStars": {
+    "description": "Auto imported from components/Landing/GameCardStars.vue"
+  },
+  "LandingGamesCarousel": {
+    "description": "Auto imported from components/Landing/GamesCarousel.vue"
+  },
+  "LandingFeatures": {
+    "description": "Auto imported from components/Landing/LandingFeatures.vue"
+  },
+  "LandingFooter": {
+    "description": "Auto imported from components/Landing/LandingFooter.vue"
+  },
+  "LandingLogin": {
+    "description": "Auto imported from components/Landing/LandingLogin.vue"
+  },
+  "LandingPreFooter": {
+    "description": "Auto imported from components/Landing/LandingPreFooter.vue"
+  },
+  "LandingProve": {
+    "description": "Auto imported from components/Landing/LandingProve.vue"
+  },
+  "LandingModalRecover": {
+    "description": "Auto imported from components/Landing/ModalRecover.vue"
+  },
+  "LandingModalSignUp": {
+    "description": "Auto imported from components/Landing/ModalSignUp.vue"
+  },
+  "LandingModalSingIn": {
+    "description": "Auto imported from components/Landing/ModalSingIn.vue"
+  },
+  "LandingPhoneCodeSwitcher": {
+    "description": "Auto imported from components/Landing/PhoneCodeSwitcher.vue"
+  },
+  "LobbyCard": {
+    "description": "Auto imported from components/Lobby/LobbyCard.vue"
+  },
+  "LobbyPlayer": {
+    "description": "Auto imported from components/Lobby/LobbyPlayer.vue"
+  },
+  "LobbySettings": {
+    "description": "Auto imported from components/Lobby/LobbySettings.vue"
+  },
+  "LobbyModalReady": {
+    "description": "Auto imported from components/Lobby/ModalReady.vue"
+  },
+  "LobbyModalResults": {
+    "description": "Auto imported from components/Lobby/ModalResults.vue"
+  },
+  "LobbyModalResultsPlayer": {
+    "description": "Auto imported from components/Lobby/ModalResultsPlayer.vue"
+  },
+  "LobbyModalService": {
+    "description": "Auto imported from components/Lobby/ModalService.vue"
+  },
+  "LobbyModalUserLobby": {
+    "description": "Auto imported from components/Lobby/ModalUserLobby.vue"
+  },
+  "LobbySimilarLobbies": {
+    "description": "Auto imported from components/Lobby/SimilarLobbies.vue"
+  },
+  "ProfileFieldCodeConfirm": {
+    "description": "Auto imported from components/Profile/FieldCodeConfirm.vue"
+  },
+  "ProfileFieldPassword": {
+    "description": "Auto imported from components/Profile/FieldPassword.vue"
+  },
+  "ProfileFieldUsername": {
+    "description": "Auto imported from components/Profile/FieldUsername.vue"
+  },
+  "ProfileInput": {
+    "description": "Auto imported from components/Profile/Input.vue"
+  },
+  "ProfileIntegration": {
+    "description": "Auto imported from components/Profile/Integration.vue"
+  },
+  "ProfilePaymentSettings": {
+    "description": "Auto imported from components/Profile/PaymentSettings.vue"
+  },
+  "ProfilePersonalSettings": {
+    "description": "Auto imported from components/Profile/PersonalSettings.vue"
+  },
+  "ProfileSocialSettings": {
+    "description": "Auto imported from components/Profile/SocialSettings.vue"
+  },
+  "UIButton": {
+    "description": "Auto imported from components/UI/Button.vue"
+  },
+  "UICheckBtn": {
+    "description": "Auto imported from components/UI/CheckBtn.vue"
+  },
+  "UISearch": {
+    "description": "Auto imported from components/UI/Search.vue"
+  },
+  "UIToggleBtn": {
+    "description": "Auto imported from components/UI/ToggleBtn.vue"
+  },
+  "WalletBonusSwitcher": {
+    "description": "Auto imported from components/Wallet/BonusSwitcher.vue"
+  },
+  "WalletModalPayment": {
+    "description": "Auto imported from components/Wallet/ModalPayment.vue"
+  },
+  "WalletModalWithDrawal": {
+    "description": "Auto imported from components/Wallet/ModalWithDrawal.vue"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+.idea/
+client/.nuxt/
+client/node_modules/
+client/.nuxt/dist
+dist
+package-lock.json
+.eslintcache

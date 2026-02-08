@@ -1,0 +1,113 @@
+[
+  {
+    "name": "icons-list",
+    "path": "/_icons",
+    "component": "/home/adilannister/doka2/client/node_modules/@nuxtjs/svg-sprite/lib/pages/icons-list.vue",
+    "_name": "_29fc2541"
+  },
+  {
+    "name": "cabinet",
+    "path": "/cabinet",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/index.vue",
+    "chunkName": "pages/cabinet/index",
+    "_name": "_4a86537e"
+  },
+  {
+    "name": "docs",
+    "path": "/docs",
+    "component": "/home/adilannister/doka2/client/pages/docs.vue",
+    "chunkName": "pages/docs",
+    "_name": "_6d4e4230"
+  },
+  {
+    "name": "recovery",
+    "path": "/recovery",
+    "component": "/home/adilannister/doka2/client/pages/recovery.vue",
+    "chunkName": "pages/recovery",
+    "_name": "_c75ba67c"
+  },
+  {
+    "name": "cabinet-friends",
+    "path": "/cabinet/friends",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/friends.vue",
+    "chunkName": "pages/cabinet/friends",
+    "_name": "_04ea65c1"
+  },
+  {
+    "name": "cabinet-history",
+    "path": "/cabinet/history",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/history.vue",
+    "chunkName": "pages/cabinet/history",
+    "_name": "_73c92d80"
+  },
+  {
+    "name": "cabinet-lobby",
+    "path": "/cabinet/lobby",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/lobby/index.vue",
+    "chunkName": "pages/cabinet/lobby/index",
+    "_name": "_20938185"
+  },
+  {
+    "name": "cabinet-profile",
+    "path": "/cabinet/profile",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/profile/index.vue",
+    "chunkName": "pages/cabinet/profile/index",
+    "_name": "_e769e2d0"
+  },
+  {
+    "name": "cabinet-support",
+    "path": "/cabinet/support",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/support.vue",
+    "chunkName": "pages/cabinet/support",
+    "_name": "_42c7eefb"
+  },
+  {
+    "name": "cabinet-wallet",
+    "path": "/cabinet/wallet",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/wallet/index.vue",
+    "chunkName": "pages/cabinet/wallet/index",
+    "_name": "_37c2ef80"
+  },
+  {
+    "name": "cabinet-lobby-create",
+    "path": "/cabinet/lobby/create",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/lobby/create.vue",
+    "chunkName": "pages/cabinet/lobby/create",
+    "_name": "_1990f9d9"
+  },
+  {
+    "name": "cabinet-profile-settings",
+    "path": "/cabinet/profile/settings",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/profile/settings.vue",
+    "chunkName": "pages/cabinet/profile/settings",
+    "_name": "_2188224d"
+  },
+  {
+    "name": "cabinet-wallet-replenish",
+    "path": "/cabinet/wallet/replenish",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/wallet/replenish.vue",
+    "chunkName": "pages/cabinet/wallet/replenish",
+    "_name": "_2f948b94"
+  },
+  {
+    "name": "cabinet-wallet-withdrawal",
+    "path": "/cabinet/wallet/withdrawal",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/wallet/withdrawal.vue",
+    "chunkName": "pages/cabinet/wallet/withdrawal",
+    "_name": "_cb7ec692"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/adilannister/doka2/client/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_002c7575"
+  },
+  {
+    "name": "cabinet-lobby-id",
+    "path": "/cabinet/lobby/:id",
+    "component": "/home/adilannister/doka2/client/pages/cabinet/lobby/_id.vue",
+    "chunkName": "pages/cabinet/lobby/_id",
+    "_name": "_23ae212d"
+  }
+]
