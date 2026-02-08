@@ -208,8 +208,8 @@ export default {
 }
 .steps__list {
   display: grid;
-  grid-template-columns: repeat(3, 25rem);
-  grid-gap: 10rem;
+  grid-template-columns: repeat(3, 30rem);
+  grid-gap: 8rem;
   justify-content: center;
   @media only screen and (max-width: 600px) {
     grid-template-columns: auto;
@@ -220,7 +220,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 2rem;
+  padding: 4rem 3.5rem;
   border-radius: 2rem;
   background: rgba(20, 20, 21, 0.3);
   backdrop-filter: blur(10px);
@@ -352,8 +352,10 @@ export default {
 .step__title {
   font-family: 'Colus', sans-serif;
   font-size: 2.5rem;
-  line-height: 124%;
+  line-height: 130%;
   text-align: center;
+  word-wrap: break-word;
+  hyphens: auto;
 
   min-height: 8rem;
 
@@ -361,6 +363,8 @@ export default {
   text-shadow: 0 0 2.5rem rgba(155, 103, 207, 0.44);
 
   margin-bottom: 1.2rem;
+  padding: 0 0.5rem;
+
   @media only screen and (max-width: 600px) {
     color: #fff;
   }

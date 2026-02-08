@@ -17,13 +17,9 @@
           | 1060, Nicosia, Cyprus
           br
           .file-links
-        a(href="/docs#termsOfUse" target="_blank").file-link
-          br
-          | Пользовательское соглашение
-        a(href="/docs#privacyPolicy" target="_blank").file-link
-          | Политика конфиденциальности
-        a(href="/docs#aml" target="_blank").file-link
-          | AML политика
+            a(href="/docs#termsOfUse" target="_blank").file-link Пользовательское соглашение
+            a(href="/docs#privacyPolicy" target="_blank").file-link Политика конфиденциальности
+            a(href="/docs#aml" target="_blank").file-link AML политика
       .footer__main
         .footer__logo
           svg-icon(name="logo").footer__logo-image
@@ -95,114 +91,189 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/design-system/index';
+
 /*
   ============================================================
-  Footer
+  Footer - Premium Glassmorphism Design
   ============================================================
 */
 .footer {
-  padding: 5.5rem 0;
-
+  padding: 8rem 0 6rem;
+  background: transparent;
   position: relative;
+
+  // Gradient line separator
   &:before {
     content: '';
-
-    width: 86%;
-    height: .1rem;
-
-    background: linear-gradient(90deg, rgba(217, 217, 217, 0) 0%, #D9D9D9 51.67%, rgba(217, 217, 217, 0) 100%);
-
+    width: 90%;
+    height: 0.1rem;
+    background: linear-gradient(
+      90deg,
+      rgba(141, 94, 244, 0) 0%,
+      rgba(141, 94, 244, 0.6) 50%,
+      rgba(141, 94, 244, 0) 100%
+    );
     position: absolute;
-    top: -.05rem;
-    left: 12%;
+    top: 0;
+    left: 5%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 5rem 0 4rem;
   }
 }
 .footer__container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  @media only screen and (max-width: 600px) {
-    flex-direction: column-reverse;
-    row-gap: 24px;
+  align-items: flex-start;
+  gap: $spacing-6;
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-5;
   }
 }
-.footer-copyright {
 
+.footer-copyright {
+  flex: 1;
+  max-width: 60rem;
+
+  @media only screen and (max-width: 900px) {
+    max-width: 100%;
+    text-align: center;
+  }
 }
+
 .footer-copyright__main {
   display: flex;
   align-items: center;
-  column-gap: 6px;
+  gap: $spacing-3;
+  margin-bottom: $spacing-4;
+
+  @media only screen and (max-width: 900px) {
+    justify-content: center;
+  }
+
   @media only screen and (max-width: 600px) {
-    column-gap: 16px;
+    flex-direction: column;
+    gap: $spacing-2;
   }
 }
-.footer-copyright__age {
-  font-weight: 700;
-  font-size: 3.1rem;
-  line-height: 1;
-  color: #292929;
 
-  background: #EBEBEB;
-  border-radius: 1rem;
-  padding: .3rem 2rem;
-  margin-bottom: .6rem;
+.footer-copyright__age {
+  @include glass-primary;
+  @include border-gradient-purple;
+
+  font-weight: $font-bold;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: $purple-400;
+
+  border-radius: $radius-md;
+  padding: 0.8rem 2.4rem;
+  text-shadow: 0 0 1rem rgba($purple-400, 0.5);
+  flex-shrink: 0;
 }
+
 .footer-copyright__text {
-  font-weight: 300;
-  font-variation-settings: 'wght' 300;
-  font-size: 1.6rem;
-  line-height: 125%;
-  letter-spacing: -.05rem;
-  color: #505050;
+  font-family: $font-primary;
+  font-weight: $font-light;
+  font-size: $text-sm;
+  line-height: $leading-relaxed;
+  color: $neutral-500;
 
   &_bold {
-    font-weight: 400;
-    font-variation-settings: 'wght' 400;
+    font-weight: $font-medium;
   }
   &_small {
-    font-size: 1.4rem;
+    font-size: $text-xs;
   }
   &_light {
-    color: #A7A7A7;
+    color: $neutral-400;
   }
   &_margin {
-    margin-bottom: .6rem;
+    margin-bottom: $spacing-2;
   }
 }
 
 .footer__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-4;
 }
+
 .footer__logo {
   &-image {
-    width: 27rem;
+    width: 28rem;
     height: 6rem;
+    filter: drop-shadow(0 0 1rem rgba($purple-500, 0.3));
+    transition: filter $transition-base $ease-out;
+
+    &:hover {
+      filter: drop-shadow(0 0 2rem rgba($purple-500, 0.5));
+    }
   }
 }
+
 .footer__mail {
   display: block;
-
-  font-weight: 300;
-  font-size: 2rem;
-  line-height: 125%;
-  color: #A7A7A7;
-
+  font-family: $font-primary;
+  font-weight: $font-medium;
+  font-size: $text-lg;
+  line-height: $leading-normal;
+  color: $neutral-400;
   text-decoration: none;
   text-align: center;
+  @include transition-base(color, text-shadow);
 
-  margin-bottom: 1.2rem;
+  &:hover {
+    color: $purple-400;
+    text-shadow: 0 0 1rem rgba($purple-400, 0.4);
+  }
 }
+
 .footer__soc-links {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 2.4rem));
-  grid-gap: 2.4rem;
+  grid-template-columns: repeat(6, 4rem);
+  gap: $spacing-3;
   justify-content: center;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 4rem);
+    gap: $spacing-4;
+  }
 }
+
 .footer__soc-link {
+  @include glass-primary;
+  @include border-gradient-purple;
+  border-radius: $radius-md;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include transition-base(background, box-shadow, transform, border-color);
+
+  &:hover {
+    @include glass-hover;
+    transform: translateY(-0.4rem);
+    box-shadow: 0 0.8rem 2rem rgba($purple-500, 0.4);
+
+    .footer__soc-link-icon {
+      color: $purple-300;
+      transform: scale(1.2);
+    }
+  }
+
   &-icon {
-    color: #A04EFF;
-    width: 2.4rem;
-    height: 2.4rem;
+    color: $purple-500;
+    width: 2rem;
+    height: 2rem;
+    @include transition-base(color, transform);
   }
 }
 /*
@@ -263,23 +334,51 @@ export default {
   margin: 0 auto;
 }
 .file-links {
-  margin-left: 2.4rem;
+  margin-top: $spacing-3;
   display: flex;
   align-items: center;
+  gap: $spacing-5;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 900px) {
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: $spacing-3;
+  }
 }
+
 .file-link {
-  display: block;
+  display: inline-block;
+  font-family: $font-primary;
+  font-weight: $font-medium;
+  font-size: $text-base;
+  line-height: $leading-normal;
+  color: $purple-400;
+  text-decoration: none;
+  position: relative;
+  @include transition-base(color, transform);
 
-  font-weight: 400;
-  font-size: 1.7rem;
-  line-height: 136%;
-  color: #754FE0;
+  // Underline effect
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.2rem;
+    left: 0;
+    width: 0;
+    height: 0.2rem;
+    background: linear-gradient(90deg, $purple-400, $purple-600);
+    @include transition-base(width);
+  }
 
-  &:not(:last-child) {
-    margin-right: 4rem;
-    @media only screen and (max-width: 600px) {
-      margin-right: 0;
-      margin-bottom: 12px;
+  &:hover {
+    color: $purple-300;
+    transform: translateX(0.4rem);
+
+    &::after {
+      width: 100%;
     }
   }
 }

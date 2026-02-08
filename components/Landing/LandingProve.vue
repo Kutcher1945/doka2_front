@@ -1,61 +1,52 @@
 <template lang="pug">
-  .prove
-    .container
-      .prove__content.select-none
-        //img(src="/images/redesign/landing/prove.png" alt="").prove__image.select-none
-        h2.prove__title
-          | Докажи, что игра
-          br
-          span.highlighted не просто хобби
-          br
-          | и трата времени
-        ul.prove__list-1
-          li.prove__text.prove__list-1-item-1
-            | Здесь нет места
-            br
-            .prove__text_accent ливерам
-          li.prove__text.prove__list-1-item-2
-            | Здесь нет места
-            br
-            .prove__text_accent смурфам
-          li.prove__text.prove__list-1-item-3
-            | Здесь нет места
-            br
-            .prove__text_accent читерам
-          li.prove__text.prove__list-1-item-4
-            | Здесь нет места
-            br
-            .prove__text_accent руинерам
-        h2.prove__second-title Здесь есть ты!
-        ul.prove__list-2
-          li.prove__text.prove__list-2-item-1
-            | Готов
-            br
-            | монетизировать свой
-            br
-            .prove__text_accent скилл
-          li.prove__text.prove__list-2-item-2
-            | Готов
-            br
-            | получать
-            br
-            .prove__text_accent бонусы
-          li.prove__text.prove__list-2-item-3
-            .prove__text_accent.prove__text_accent_highlighted Готов
-            .prove__text_accent.prove__text_accent_highlighted быть частью
-            .prove__text_accent.prove__text_accent_larger CyberT
-          li.prove__text.prove__list-2-item-4
-            | Готов
-            br
-            | получать
-            br
-            .prove__text_accent бонусы
-          li.prove__text.prove__list-2-item-5
-            | Готов
-            br
-            | сражаться за
-            br
-            .prove__text_accent победу!
+.prove
+  .container
+    .prove__content.select-none
+
+      // Main title
+      h2.prove__title
+        | Докажи, что игра
+        br
+        span.highlighted не просто хобби
+        br
+        | и трата времени
+
+      // Top grid - "No place for" cards
+      .prove__grid-top
+        .prove__card.prove__card_exclude
+          .prove__card-label Здесь нет места
+          .prove__card-value ливерам
+        .prove__card.prove__card_exclude
+          .prove__card-label Здесь нет места
+          .prove__card-value смурфам
+        .prove__card.prove__card_exclude
+          .prove__card-label Здесь нет места
+          .prove__card-value читерам
+        .prove__card.prove__card_exclude
+          .prove__card-label Здесь нет места
+          .prove__card-value руинерам
+
+      // Middle CTA
+      h2.prove__second-title Здесь есть ты!
+
+      // Bottom grid - "Ready to" cards
+      .prove__grid-bottom
+        .prove__card.prove__card_include
+          .prove__card-label Готовый монетизировать свой
+          .prove__card-value скилл
+        .prove__card.prove__card_include
+          .prove__card-label Готовый получать
+          .prove__card-value бонусы
+        .prove__card.prove__card_featured
+          .prove__card-featured-line Готовый
+          .prove__card-featured-line быть частью
+          .prove__card-featured-brand CyberT
+        .prove__card.prove__card_include
+          .prove__card-label Готовый получать
+          .prove__card-value призы
+        .prove__card.prove__card_include
+          .prove__card-label Готовый сражаться за
+          .prove__card-value победу!
 </template>
 
 <script>
@@ -73,11 +64,16 @@ export default {
 */
 .prove {
   margin-bottom: 12rem;
+
+  // Override container to make it full width
+  .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
   @media only screen and (max-width: 600px) {
     margin-bottom: 6rem;
-    .container {
-      padding: 0;
-    }
   }
 }
 .prove__content {
@@ -85,15 +81,57 @@ export default {
   min-height: 100vh;
   height: auto;
   position: relative;
-  background-image: url('/images/redesign/landing/prove.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  padding: 4rem 0;
+  padding: 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+
+  // Background image with blur
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/redesign/landing/prove.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(3px);
+    z-index: 0;
+  }
+
+  // Purple gradient overlay
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(141, 94, 244, 0.15) 0%,
+      rgba(117, 79, 224, 0.25) 40%,
+      rgba(88, 28, 135, 0.3) 70%,
+      rgba(20, 20, 21, 0.5) 100%
+    );
+    z-index: 0;
+  }
+
+  // All content on top of background
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   @media only screen and (max-width: 600px) {
     min-height: 80vh;
-    background-size: cover;
+    padding: 3rem 1.6rem;
+    gap: 2.4rem;
   }
 }
 .prove__image {
@@ -110,22 +148,28 @@ export default {
 }
 .prove__title {
   font-family: 'Colus', sans-serif;
-  font-size: 3.4rem;
-  line-height: 86.9%;
+  font-size: 5.2rem;
+  line-height: 110%;
   color: #FFFFFF;
-  //text-shadow: 0 .4rem 6.9rem #000000, 0 .4rem 6.9rem #000000;
+  text-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+  font-weight: normal;
+
   .highlighted {
     color: #8D5DF4;
+    text-shadow:
+      0 0 3rem rgba(141, 94, 244, 0.8),
+      0 0.4rem 2rem rgba(0, 0, 0, 0.8);
+    font-size: 5.6rem;
   }
 
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
   @media only screen and (max-width: 600px) {
-    top: 5%;
-    font-size: 28px;
+    font-size: 3.2rem;
     line-height: 113%;
+
+    .highlighted {
+      font-size: 3.6rem;
+    }
   }
 }
 .prove__second-title {
@@ -134,13 +178,10 @@ export default {
   line-height: 104.4%;
   color: #8D5EF4;
   text-shadow: 0 .4rem 3.9rem #000000, 0 .4rem 6.9rem #000000;
+  margin: 2rem 0;
 
-  position: absolute;
-  top: 42.5%;
-  left: 50%;
-  transform: translateX(-50%);
   @media only screen and (max-width: 600px) {
-    display: none;
+    font-size: 4.2rem;
   }
 }
 .prove__text {
@@ -187,161 +228,210 @@ export default {
   }
 }
 
-@keyframes proveText {
-  0% {
-    transform: scale(1);
+// Grid layouts
+.prove__grid-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.2rem;
+  width: 100%;
+  max-width: 140rem;
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
-  100% {
-    transform: scale(1.1);
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    max-width: 100%;
+    padding: 0 1rem;
   }
 }
-.prove__list-1 {
-  &-item {
-    padding: 1.2rem 2rem;
-    background: rgba(20, 20, 21, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.2rem;
-    transition: all 0.3s ease;
 
-    &:hover {
-      background: rgba(141, 94, 244, 0.15);
-      border-color: rgba(141, 94, 244, 0.4);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(141, 94, 244, 0.3);
+.prove__grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3.2rem;
+  width: 100%;
+  max-width: 160rem;
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    .prove__card_featured {
+      grid-column: 2 / 3;
     }
+  }
 
-    &-1 {
-      position: absolute;
-      top: 30%;
-      left: 5%;
-      animation-delay: 0.2s;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    max-width: 100%;
+    padding: 0 1rem;
 
-      @media only screen and (max-width: 1200px) {
-        left: 2%;
-        top: 28%;
-      }
-    }
-    &-2 {
-      position: absolute;
-      top: 31%;
-      left: 20%;
-
-      @media only screen and (max-width: 1200px) {
-        left: 18%;
-      }
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-    &-3 {
-      position: absolute;
-      top: 31%;
-      right: 20%;
-
-      @media only screen and (max-width: 1200px) {
-        right: 18%;
-      }
-      @media only screen and (max-width: 600px) {
-        right: 2%;
-        top: 28%;
-      }
-    }
-    &-4 {
-      position: absolute;
-      top: 30%;
-      right: 5%;
-      animation-delay: 0.2s;
-
-      @media only screen and (max-width: 1200px) {
-        right: 2%;
-        top: 28%;
-      }
-    }
-
-    &-1,
-    &-4 {
-      color: #9E9E9E;
-      .prove__text_accent {
-        color: #B8B8B8;
-        font-size: 2rem;
-        font-weight: 800;
-      }
-    }
-
-    &-2,
-    &-3 {
-      color: #AEAEAE;
-      .prove__text_accent {
-        color: #D4D4D4;
-        font-size: 2rem;
-        font-weight: 800;
-      }
+    .prove__card_featured {
+      grid-column: 1;
     }
   }
 }
+
+// Card styles
+.prove__card {
+  padding: 3.2rem 4rem;
+  background: rgba(20, 20, 21, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  cursor: pointer;
+  min-height: 16rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: translateY(-0.6rem);
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 2rem 2rem;
+    min-height: auto;
+  }
+}
+
+.prove__card_exclude {
+  background: rgba(20, 20, 21, 0.95);
+
+  &:hover {
+    background: rgba(30, 20, 20, 0.95);
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0.8rem 2.4rem rgba(239, 68, 68, 0.4);
+  }
+
+  .prove__card-label {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 121%;
+    color: #CBCBCB;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .prove__card-value {
+    font-family: 'Colus', sans-serif;
+    color: #EF4444;
+    font-size: 3.6rem;
+    line-height: 125%;
+    font-weight: normal;
+    text-decoration: line-through;
+    text-decoration-thickness: 0.3rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 2.8rem;
+    }
+  }
+
+  .prove__card-label {
+    @media only screen and (max-width: 600px) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.prove__card_include {
+  background: rgba(30, 25, 40, 0.95);
+  border-color: rgba(117, 79, 224, 0.4);
+
+  &:hover {
+    background: rgba(40, 30, 50, 0.95);
+    border-color: rgba(117, 79, 224, 0.6);
+    box-shadow: 0 0.8rem 2.4rem rgba(117, 79, 224, 0.5);
+  }
+
+  .prove__card-label {
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 121%;
+    color: #CBCBCB;
+    margin-bottom: 1rem;
+  }
+
+  .prove__card-value {
+    font-family: 'Colus', sans-serif;
+    font-size: 3.6rem;
+    line-height: 125%;
+    color: #8D5EF4;
+    text-shadow: 0 .4rem 6.9rem #000000, 0 .4rem 6.9rem #000000;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 2.8rem;
+    }
+  }
+
+  .prove__card-label {
+    @media only screen and (max-width: 600px) {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+.prove__card_featured {
+  background: linear-gradient(135deg, rgba(117, 79, 224, 0.85), rgba(88, 28, 135, 0.85));
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow:
+    0 0 3rem rgba(117, 79, 224, 0.6),
+    inset 0 0 2rem rgba(168, 85, 247, 0.25);
+  padding: 4rem 4.8rem;
+  min-height: 20rem;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(117, 79, 224, 0.95), rgba(88, 28, 135, 0.95));
+    transform: translateY(-0.8rem) scale(1.05);
+    box-shadow:
+      0 1.2rem 4rem rgba(117, 79, 224, 0.7),
+      inset 0 0 3rem rgba(168, 85, 247, 0.35);
+  }
+
+  .prove__card-featured-line {
+    font-family: 'Colus', sans-serif;
+    color: #8D5EF4;
+    font-size: 3.2rem;
+    line-height: 125%;
+  }
+
+  .prove__card-featured-brand {
+    font-family: 'Colus', sans-serif;
+    font-size: 6rem;
+    line-height: 124%;
+    color: #FFFFFF;
+    text-shadow: 0 .4rem 6rem #FFFFFF;
+    margin-top: 1rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 2.4rem 2rem;
+    min-height: auto;
+
+    .prove__card-featured-line {
+      font-size: 2rem;
+    }
+
+    .prove__card-featured-brand {
+      font-size: 3.6rem;
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+// Remove old list styles
+// Old styles - keeping for backward compatibility but unused
+.prove__list-1,
 .prove__list-2 {
-  &-item {
-    &-1 {
-      position: absolute;
-      bottom: 18.5%;
-      left: 4%;
-      animation-delay: 1s;
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-    &-2 {
-      position: absolute;
-      left: 20%;
-      bottom: 15%;
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-    &-3 {
-      position: absolute;
-      left: 48.5% - 8.5%;
-      //transform: translateX(-50%);
-      bottom: 9%;
-      @media only screen and (max-width: 600px) {
-        left: 25%;
-      }
-    }
-    &-4 {
-      position: absolute;
-      right: 24.5%;
-      bottom: 15%;
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-    &-5 {
-      position: absolute;
-      bottom: 18.5%;
-      right: 8%;
-      animation-delay: 1s;
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-
-    &-1,
-    &-5 {
-      font-size: 1.2rem;
-      color: #303030;
-      .prove__text_accent {
-        color: #3C3C3C;
-      }
-    }
-
-    &-2,
-    &-4 {
-      color: #686868;
-      .prove__text_accent {
-        color: #9C9C9C;
-      }
-    }
-  }
+  display: none;
 }
 </style>
