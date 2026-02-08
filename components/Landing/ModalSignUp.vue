@@ -248,22 +248,35 @@ export default {
   margin-bottom: 2.8rem;
   @media only screen and (max-width: 600px) {
     grid-template-columns: auto;
+    grid-gap: 1.8rem;
+    margin-bottom: 2rem;
   }
 }
 .sign-up__checkboxes {
   margin-bottom: 2.4rem;
   margin-left: 0;
+
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 2rem;
+  }
 }
 .sign-up__button {
   position: relative;
 
   margin-bottom: 2.4rem;
+
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 2rem;
+  }
 }
 .sign-up__form-error {
   margin-top: 1rem;
 }
 
 .field-phone {
+  position: relative;
+  z-index: 100;
+
   &__switcher {
     flex: 0 0 auto;
 

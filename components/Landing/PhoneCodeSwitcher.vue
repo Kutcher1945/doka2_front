@@ -57,11 +57,14 @@ export default {
 .switcher {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 100;
 }
 .switcher__select {
   flex: 0 0 auto;
 
   width: 2.5rem;
+  position: relative;
 
   ::v-deep .vs {
     &__dropdown-toggle {
@@ -151,6 +154,8 @@ export default {
       padding: 1.1rem 1.1rem;
 
       top: calc(100% + 1.75rem);
+      z-index: 9999 !important;
+      position: absolute !important;
     }
     &__dropdown-option {
       background: none;

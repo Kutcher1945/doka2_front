@@ -158,6 +158,11 @@ export default {
 
   margin-bottom: 2.8rem;
 
+  @media only screen and (max-width: 600px) {
+    grid-gap: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
   &-bottom {
   }
 }
@@ -168,10 +173,21 @@ export default {
   justify-content: flex-start;
 
   margin-bottom: 2.4rem;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.6rem;
+  }
 }
 
 .sign-in__button {
   margin-right: 2.4rem;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
 }
 
 .sign-in__form-error {
