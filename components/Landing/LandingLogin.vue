@@ -1,14 +1,10 @@
 <template lang="pug">
-  .first-screen
-
-    video#fs-video.first-screen__video(autoplay, muted, loop, v-show="testVideoToggle")
-      source(src="/ready_2.mp4" type="video/mp4")
-
+  div
     .header
       .container.header__container
         .header__top
           .header__logo
-            svg-icon(name="redesign/logo-short").header__logo-image
+            svg-icon(name="logo").header__logo-image
 
           // Desktop Navigation
           nav.header__nav.header__nav--desktop
@@ -43,6 +39,11 @@
           .header__auth-buttons.header__auth-buttons--mobile
             button.index-button.header__button(@click.prevent="showSingIn(); mobileMenuOpen = false") Вход
             button.index-button.header__button(@click.prevent="showSingUp(); mobileMenuOpen = false") Регистрация
+
+    .first-screen
+
+      video#fs-video.first-screen__video(autoplay, muted, loop, v-show="testVideoToggle")
+        source(src="/ready_2.mp4" type="video/mp4")
 
 </template>
 
@@ -158,14 +159,31 @@ export default {
   ============================================================
 */
 .header {
-  position: relative;
-  z-index: 10;
-}
-.header__container {
-  padding: 2.4rem 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 100%);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5),
+              0 1px 0 rgba(141, 94, 244, 0.2);
 
   @media only screen and (max-width: 768px) {
-    padding: 2rem 0 0;
+    backdrop-filter: blur(8px) saturate(130%);
+    -webkit-backdrop-filter: blur(8px) saturate(130%);
+  }
+}
+
+.header__container {
+  padding: 1.6rem 0;
+  transition: padding 0.3s ease;
+
+  @media only screen and (max-width: 768px) {
+    padding: 1.2rem 0;
   }
 }
 .header__top {
@@ -191,7 +209,7 @@ export default {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 1002;
+  z-index: 10002;
 
   @media only screen and (max-width: 768px) {
     margin-left: 1.6rem;
@@ -202,8 +220,8 @@ export default {
   }
 
   &-image {
-    width: 8rem;
-    height: 8rem;
+    width: 18rem;
+    height: 4rem;
     filter: drop-shadow(0 0 20px rgba(141, 94, 244, 0.5));
     transition: transform 0.3s ease, filter 0.3s ease;
 
@@ -213,8 +231,13 @@ export default {
     }
 
     @media only screen and (max-width: 768px) {
-      width: 6rem;
-      height: 6rem;
+      width: 14rem;
+      height: 3rem;
+    }
+
+    @media only screen and (max-width: 480px) {
+      width: 12rem;
+      height: 2.5rem;
     }
   }
 }
@@ -368,7 +391,7 @@ export default {
   cursor: pointer;
   padding: 0;
   position: relative;
-  z-index: 1002;
+  z-index: 10002;
 
   @media only screen and (max-width: 768px) {
     display: flex;
@@ -396,7 +419,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1003;
+  z-index: 10003;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -491,6 +514,15 @@ export default {
   background-size: auto 100%;
 
   overflow: hidden;
+  padding-top: 12rem;
+
+  @media only screen and (max-width: 768px) {
+    padding-top: 10rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding-top: 8rem;
+  }
 }
 .first-screen__video {
   position: absolute;
