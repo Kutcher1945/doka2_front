@@ -3,7 +3,7 @@
     .header
       .container.header__container
         .header__top
-          .header__logo
+          a.header__logo(@click.prevent="scrollToTop")
             svg-icon(name="logo").header__logo-image
 
           // Desktop Navigation
@@ -74,6 +74,7 @@ export default {
   },
   methods: {
     showSingIn () {
+      this.$modal.hideAll()
       this.$modal.show(
         ModalSignIn,
         {
@@ -83,6 +84,7 @@ export default {
       )
     },
     showSingUp () {
+      this.$modal.hideAll()
       this.$modal.show(
         ModalSignUp,
         {
@@ -96,6 +98,9 @@ export default {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
+    },
+    scrollToTop () {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     },
     gamePlay () {
       this.showSingUp()
@@ -210,6 +215,8 @@ export default {
   align-items: center;
   position: relative;
   z-index: 10002;
+  cursor: pointer;
+  text-decoration: none;
 
   @media only screen and (max-width: 768px) {
     margin-left: 1.6rem;
