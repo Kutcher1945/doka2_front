@@ -6,18 +6,43 @@
 
     .header
       .container.header__container
-        .header__logo
-          svg-icon(name="redesign/logo-short").header__logo-image
-        .header__panel
-          .header__title
-            span(@click="testVideoToggle = !testVideoToggle" style="cursor: pointer")
-            span.highlighted
-            |
+        .header__top
+          .header__logo
+            svg-icon(name="redesign/logo-short").header__logo-image
 
-    .container.first-screen__container
-      .first-screen__buttons
-        button.index-button.first-screen__button(@click.prevent="showSingIn") Вход
-        button.index-button.first-screen__button(@click.prevent="showSingUp") Регистрация
+          // Desktop Navigation
+          nav.header__nav.header__nav--desktop
+            a.header__nav-item(@click.prevent="scrollToSection('prove')") Преимущества
+            a.header__nav-item(@click.prevent="scrollToSection('features')") Возможности
+            a.header__nav-item(@click.prevent="scrollToSection('steps')") Как начать
+
+          // Desktop Auth Buttons
+          .header__auth-buttons.header__auth-buttons--desktop
+            button.index-button.header__button(@click.prevent="showSingIn") Вход
+            button.index-button.header__button(@click.prevent="showSingUp") Регистрация
+
+          // Mobile Menu Toggle
+          button.header__mobile-toggle(@click="mobileMenuOpen = !mobileMenuOpen")
+            span.header__mobile-toggle-line
+            span.header__mobile-toggle-line
+            span.header__mobile-toggle-line
+
+        .header__panel
+
+      // Mobile Menu
+      .header__mobile-menu(:class="{ 'header__mobile-menu--open': mobileMenuOpen }")
+        .header__mobile-menu-overlay(@click="mobileMenuOpen = false")
+        .header__mobile-menu-content
+          button.header__mobile-close(@click="mobileMenuOpen = false") ×
+
+          nav.header__nav.header__nav--mobile
+            a.header__nav-item(@click.prevent="scrollToSection('prove'); mobileMenuOpen = false") Преимущества
+            a.header__nav-item(@click.prevent="scrollToSection('features'); mobileMenuOpen = false") Возможности
+            a.header__nav-item(@click.prevent="scrollToSection('steps'); mobileMenuOpen = false") Как начать
+
+          .header__auth-buttons.header__auth-buttons--mobile
+            button.index-button.header__button(@click.prevent="showSingIn(); mobileMenuOpen = false") Вход
+            button.index-button.header__button(@click.prevent="showSingUp(); mobileMenuOpen = false") Регистрация
 
 </template>
 
@@ -30,7 +55,8 @@ export default {
   components: { ModalSignIn, ModalSignUp },
   data() {
     return {
-      testVideoToggle: true
+      testVideoToggle: true,
+      mobileMenuOpen: false
     }
   },
   mounted () {
@@ -63,6 +89,12 @@ export default {
         {},
         {}
       )
+    },
+    scrollToSection (sectionId) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     },
     gamePlay () {
       this.showSingUp()
@@ -126,15 +158,48 @@ export default {
   ============================================================
 */
 .header {
-
+  position: relative;
+  z-index: 10;
 }
 .header__container {
+  padding: 2.4rem 0 0;
 
+  @media only screen and (max-width: 768px) {
+    padding: 2rem 0 0;
+  }
+}
+.header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 2rem;
+
+  @media only screen and (max-width: 1024px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 1.6rem;
+  }
 }
 .header__logo {
   display: flex;
-  justify-content: center;
-  padding: 2rem 0;
+  align-items: center;
+  position: relative;
+  z-index: 1002;
+
+  @media only screen and (max-width: 768px) {
+    margin-left: 1.6rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin-left: 1.2rem;
+  }
 
   &-image {
     width: 8rem;
@@ -146,43 +211,267 @@ export default {
       transform: scale(1.05);
       filter: drop-shadow(0 0 30px rgba(141, 94, 244, 0.8));
     }
+
+    @media only screen and (max-width: 768px) {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+}
+.header__auth-buttons {
+  display: flex;
+  gap: 1.6rem;
+
+  &--desktop {
+    @media only screen and (max-width: 1024px) {
+      order: 2;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+.header__button {
+  font-family: 'Colus', sans-serif;
+  font-weight: normal;
+  font-size: 1.8rem;
+  letter-spacing: 0.02rem;
+  min-width: 14rem;
+  padding: 1.2rem 3rem;
+
+  &:first-child {
+    background: transparent;
+    border: 2px solid rgba(141, 94, 244, 0.6);
+    box-shadow: 0 0 20px rgba(141, 94, 244, 0.2);
+
+    &:hover {
+      background: rgba(141, 94, 244, 0.1);
+      border-color: rgba(141, 94, 244, 0.8);
+      box-shadow: 0 0 30px rgba(141, 94, 244, 0.4);
+    }
+  }
+
+  &:last-child {
+    background: linear-gradient(135deg, #8D5EF4 0%, #B999FD 100%);
+    border: 2px solid transparent;
+
+    &:hover {
+      box-shadow: 0 6px 30px rgba(141, 94, 244, 0.5),
+                  0 12px 50px rgba(141, 94, 244, 0.3);
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    flex: 1;
+    min-width: auto;
+    padding: 1.2rem 2rem;
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
   }
 }
 .header__panel {
   position: relative;
-  padding-top: 1.2rem;
-  &:before {
+  height: 0.2rem;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(141, 94, 244, 0) 0%, rgba(141, 94, 244, 0.6) 50%, rgba(141, 94, 244, 0) 100%);
+  margin-top: 2rem;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 1.6rem;
+  }
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+
+  &--desktop {
+    @media only screen and (max-width: 1024px) {
+      gap: 2rem;
+      order: 3;
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    flex-direction: column;
+    gap: 3.2rem;
+    margin-bottom: 4rem;
+  }
+}
+.header__nav-item {
+  font-family: 'Colus', sans-serif;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 125%;
+  letter-spacing: 0.02rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &::after {
     content: '';
-
-    height: .3rem;
-    width: 100%;
-
     position: absolute;
+    bottom: -0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0.2rem;
+    background: linear-gradient(90deg, #8D5EF4, #B999FD);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    color: #FFFFFF;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 1.4rem;
+  }
+}
+
+// Mobile Menu Toggle (Hamburger)
+.header__mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 3.2rem;
+  height: 2.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1002;
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    margin-right: 1.6rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin-right: 1.2rem;
+  }
+
+  &-line {
+    width: 100%;
+    height: 0.3rem;
+    background: linear-gradient(90deg, #8D5EF4, #B999FD);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(141, 94, 244, 0.4);
+  }
+}
+
+// Mobile Menu
+.header__mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1003;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  @media only screen and (min-width: 769px) {
+    display: none;
+  }
+
+  &--open {
+    opacity: 1;
+    pointer-events: all;
+
+    .header__mobile-menu-content {
+      transform: translateX(0);
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
     left: 0;
-    top: -.15rem;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+  }
 
-    background: linear-gradient(90deg, rgba(217, 217, 217, 0) 0%, #D9D9D9 51.67%, rgba(217, 217, 217, 0) 100%);
+  &-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    max-width: 40rem;
+    background: linear-gradient(145deg, rgba(20, 20, 21, 0.98) 0%, rgba(30, 30, 35, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(141, 94, 244, 0.3);
+    box-shadow: -4px 0 40px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(141, 94, 244, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    padding: 8rem 3rem 3rem;
   }
 }
-.header__title {
-  font-family: 'ALISEO', sans-serif;
-  font-size: 7.6rem;
-  line-height: 110%;
-  letter-spacing: 0.005em;
-  color: rgba(255, 255, 255, .94);
-  text-align: center;
 
-  .highlighted {
-    font-family: 'Noisy Walk', sans-serif;
-    font-size: 23rem;
-    line-height: 1;
-    letter-spacing: 0.005em;
-    color: #B999FD;
-    text-shadow: 0 0 2.3rem #4200FF, 0 0 22.8rem rgba(219, 0, 255, 0.36);
+.header__mobile-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #8D5EF4 0%, #B999FD 100%);
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 3rem;
+  line-height: 1;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(141, 94, 244, 0.4);
+  transition: all 0.3s ease;
 
-    margin: 0 4rem;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(141, 94, 244, 0.5);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
+
 /*
   ============================================================
   First Screen
@@ -223,34 +512,8 @@ export default {
 }
 .first-screen__container {
   flex-grow: 1;
-
   display: flex;
-  align-items: flex-end;
-  padding-bottom: 2.4rem;
-}
-.first-screen__buttons {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 3rem;
-  background: rgba(20, 20, 21, 0.4);
-  backdrop-filter: blur(20px);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-}
-.first-screen__button {
-  min-width: 20rem;
-
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    min-width: auto;
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-.prove
+.prove#prove
   .container
     .prove__content.select-none
 

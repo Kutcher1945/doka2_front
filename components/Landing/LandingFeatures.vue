@@ -1,5 +1,5 @@
 <template lang="pug">
-  .features.select-none
+  .features.select-none#features
     .container
       h2.features__title С нами ты получишь
       .features__content
