@@ -1,5 +1,8 @@
 <template lang="pug">
 .prove#prove
+  video.prove__video(autoplay, muted, loop)
+    source(src="/video-omen.mp4" type="video/mp4")
+
   .container
     .prove__content.select-none
 
@@ -64,6 +67,9 @@ export default {
 */
 .prove {
   margin-bottom: 12rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 
   // Override container to make it full width
   .container {
@@ -74,7 +80,22 @@ export default {
 
   @media only screen and (max-width: 600px) {
     margin-bottom: 6rem;
+    min-height: 80vh;
   }
+}
+
+.prove__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  object-fit: cover;
+  filter: blur(3px);
 }
 .prove__content {
   text-align: center;
@@ -88,21 +109,21 @@ export default {
   justify-content: center;
   gap: 5rem;
 
-  // Background image with blur
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/images/redesign/landing/prove.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    filter: blur(3px);
-    z-index: 0;
-  }
+  // Background video replaces static image
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   background-image: url('/images/redesign/landing/prove.png');
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   filter: blur(3px);
+  //   z-index: 0;
+  // }
 
   // Purple gradient overlay
   &::after {
@@ -119,13 +140,13 @@ export default {
       rgba(88, 28, 135, 0.3) 70%,
       rgba(20, 20, 21, 0.5) 100%
     );
-    z-index: 0;
+    z-index: 1;
   }
 
   // All content on top of background
   > * {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   @media only screen and (max-width: 600px) {
